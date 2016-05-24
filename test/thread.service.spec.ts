@@ -2,8 +2,8 @@ import * as _ from "underscore";
 import {User} from "../app/ts/user.model";
 import {Thread} from "../app/ts/thread.model";
 import {Message} from "../app/ts/message.model";
-import {MessagesService} from "../app/ts/message.service";
-import {ThreadsService} from "../app/ts/threads.service";
+import {MessagesService} from "../app/ts/services/message.service.ts";
+import {ThreadsService} from "../app/ts/services/threads.service.ts";
 
 describe("Thread service", () => {
     it('should collect the Threads from Messages', () => {

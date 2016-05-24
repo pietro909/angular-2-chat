@@ -1,5 +1,5 @@
 import {Message, User, Thread} from '../app/ts/models';
-import {MessagesService} from "../app/ts/message.service";
+import {MessagesService} from "../app/ts/services/message.service.ts";
 
 describe('MessagesService', () => {
     it('should test', () => {
