@@ -1,8 +1,8 @@
 import { Injectable, bind } from "@angular/core";
 import {Subject, Observable} from "rxjs";
-import {Message} from "./message.model";
-import {User} from "./user.model";
-import {Thread} from "./thread.model";
+import {Message} from "../message.model.ts";
+import {User} from "../user.model.ts";
+import {Thread} from "../thread.model.ts";
 
 let initialMessages: Message[] = [];
 

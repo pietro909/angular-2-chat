@@ -1,5 +1,5 @@
 import { Injectable, bind } from "@angular/core";
-import {User} from "./user.model";
+import {User} from "../user.model.ts";
 import {Subject, BehaviorSubject} from "rxjs";
 
 @Injectable()

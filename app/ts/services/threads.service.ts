@@ -1,7 +1,7 @@
 import {Injectable, bind} from "@angular/core";
 import {Subject, BehaviorSubject, Observable} from "rxjs";
-import {Thread, Message} from "models";
-import {MessagesService} from "message.service";
+import {Thread, Message} from "../models";
+import {MessagesService} from "message.service.ts";
 import * as _ from "underscore";
 
 @Injectable()
@@ -12,6 +12,8 @@ export class ThreadsService {
     orderedThreads: Observable<Thread[]>;
 
     currentThread: Subject<Thread> = new BehaviorSubject<Thread>(new Thread());
+
+    currentThreadMessages: Observable<Message[]>;
 
     constructor(
         private messagesService: MessagesService
@@ -36,7 +38,7 @@ export class ThreadsService {
                 return _.sortBy(threads, (t: Thread) => t.lastMessage.sentAt).reverse();
             });
 
-        this.currentThread
+        this.currentThreadMessages = this.currentThread
             .combineLatest(
                 this.messagesService.messages,
                 (currentThread: Thread, messages: Message[]) => {
