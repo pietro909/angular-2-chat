@@ -17,7 +17,7 @@ import {UserService} from './services/user.service';
         </div>
         <div class="messages"
             [ngClass]="{'message-sent': !incoming, 'msg-receive': incoming}">
-            <p>{{message.sender}}</p>
+            <p>{{message.text}}</p>
             <time>{{message.sender}} • {{message.sentAt | fromNow}}</time>
         </div>
         <div class="avatar"
