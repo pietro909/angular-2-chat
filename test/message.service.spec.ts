@@ -4,7 +4,7 @@ import {MessagesService} from "../app/ts/services/message.service.ts";
 describe('MessagesService', () => {
     it('should test', () => {
         const user: User = new User('Nate', '');
-        const thread: Thread = new Thread('tl', 'Nate');
+        const thread: Thread = new Thread('tl', 'Nate', null);
         const ml: Message = new Message({
             author: user,
             text: 'Hi',

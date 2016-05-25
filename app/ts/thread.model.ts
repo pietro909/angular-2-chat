@@ -1,5 +1,5 @@
 import { uuid } from './util/uuid';
-import {Message} from "./message.model";
+import {Message} from './message.model';
 
 export class Thread {
 
@@ -9,13 +9,13 @@ export class Thread {
     lastMessage: Message;
 
     constructor(
-        id: string,
-        name: string,
-        avatarSrc: string
+        id: string | undefined,
+        name: string | undefined,
+        avatarSrc: string | undefined
     ) {
         this.id = id || uuid();
         this.name = name;
         this.avatarSrc = avatarSrc;
     }
-    
+
 }

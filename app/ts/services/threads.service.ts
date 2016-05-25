@@ -1,8 +1,8 @@
-import {Injectable, bind} from "@angular/core";
-import {Subject, BehaviorSubject, Observable} from "rxjs";
-import {Thread, Message} from "../models";
-import {MessagesService} from "message.service.ts";
-import * as _ from "underscore";
+import {Injectable, bind} from '@angular/core';
+import {Subject, BehaviorSubject, Observable} from 'rxjs';
+import {Thread, Message} from '../models';
+import {MessagesService} from 'message.service.ts';
+import * as _ from 'underscore';
 
 @Injectable()
 export class ThreadsService {
@@ -11,7 +11,9 @@ export class ThreadsService {
 
     orderedThreads: Observable<Thread[]>;
 
-    currentThread: Subject<Thread> = new BehaviorSubject<Thread>(new Thread());
+    currentThread: Subject<Thread> = new BehaviorSubject<Thread>(
+                           new Thread(null, null, null)
+                        );
 
     currentThreadMessages: Observable<Message[]>;
 
@@ -20,8 +22,9 @@ export class ThreadsService {
     ) {
         this.threads = this.messagesService.messages
             .map((messages: Message[]) => {
-                let threads: Thread[] = [];
-                messages.map((message: Message) =>{
+                // todo: use recursion PLEASE
+                let threads: {[key: string]: Thread} = {};
+                messages.map((message: Message) => {
                     threads[message.thread.id] = threads[message.thread.id] || message.thread;
 
                     let messagesThread: Thread = threads[message.thread.id];
@@ -44,7 +47,7 @@ export class ThreadsService {
                 (currentThread: Thread, messages: Message[]) => {
                     if (currentThread && messages.length > 0) {
                         return _.chain(messages)
-                            .filter((message: Message) => message.thread.id == currentThread.id)
+                            .filter((message: Message) => message.thread.id === currentThread.id)
                             .map((message: Message) => {
                                 // todo: side effects here
                                 message.isRead = true;

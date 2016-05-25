@@ -1,7 +1,7 @@
-import {Component, ChangeDetectionStrategy} from "@angular/core";
-import {Observable} from "rxjs/Observable";
-import {ThreadsService} from "./services/threads.service";
-import {ChatThread} from "./chat-thread.component";
+import {Component, ChangeDetectionStrategy} from '@angular/core';
+import {Observable} from 'rxjs/Observable';
+import {ThreadsService} from './services/threads.service';
+import {ChatThread} from './chat-thread.component';
 
 @Component({
     selector: 'chat-threads',

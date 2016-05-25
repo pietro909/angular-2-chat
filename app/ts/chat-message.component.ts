@@ -1,30 +1,30 @@
 import {Component, OnInit} from '@angular/core';
-import {FromNowPipe} from "./util/FromNowPipe";
-import {User} from "./user.model";
-import {Message} from "./message.model";
-import {UserService} from "./services/user.service";
+import {FromNowPipe} from './util/FromNowPipe';
+import {User} from './user.model';
+import {Message} from './message.model';
+import {UserService} from './services/user.service';
 
 @Component({
     inputs: ['message'],
     selector: 'chat-message',
     pipes: [FromNowPipe],
     template: `
-        <div class="msg-container"
-            [ngClass]="{'base-sent': !incoming, 'base-receive': incoming}">
-            <div class="avatar"
-                *ngIf="!incoming">
-                <img src="{{message.author.avatarSrc}}">
-            </div>
-            <div class="messages"
-                [ngClass]="{'message-sent': !incoming, 'msg-receive': incoming}">
-                <p>{{message.sender}}</p>
-                <time>{{message.sender}} • {{message.sentAt | fromNow}}</time>
-            </div>
-            <div class="avatar"
-                *ngIf="incoming">
-                <img src="{{message.author.avatarSrc}}">
-            </div>
+    <div class="msg-container"
+        [ngClass]="{'base-sent': !incoming, 'base-receive': incoming}">
+        <div class="avatar"
+            *ngIf="!incoming">
+            <img src="{{message.author.avatarSrc}}">
         </div>
+        <div class="messages"
+            [ngClass]="{'message-sent': !incoming, 'msg-receive': incoming}">
+            <p>{{message.sender}}</p>
+            <time>{{message.sender}} • {{message.sentAt | fromNow}}</time>
+        </div>
+        <div class="avatar"
+            *ngIf="incoming">
+            <img src="{{message.author.avatarSrc}}">
+        </div>
+    </div>
     `
 })
 export class ChatMessage implements OnInit {

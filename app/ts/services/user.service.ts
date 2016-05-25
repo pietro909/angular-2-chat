@@ -1,6 +1,6 @@
-import { Injectable, bind } from "@angular/core";
-import {User} from "../user.model.ts";
-import {Subject, BehaviorSubject} from "rxjs";
+import { Injectable, bind } from '@angular/core';
+import {User} from '../user.model.ts';
+import {Subject, BehaviorSubject} from 'rxjs';
 
 @Injectable()
 export class UserService {
@@ -17,3 +17,4 @@ export class UserService {
 export const userServiceInjectables: Array<any> = [
     bind(UserService).toClass(UserService)
 ];
+

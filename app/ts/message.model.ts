@@ -1,21 +1,21 @@
-import {Thread} from "./thread.model";
-import {User} from "./user.model";
-import {uuid} from "./util/uuid";
+import {Thread} from './thread.model';
+import {User} from './user.model';
+import {uuid} from './util/uuid';
 
 export class Message {
-    
+
     id: string;
-    
+
     sentAt: Date;
-    
+
     isRead: boolean;
-    
+
     author: User;
-    
+
     text: string;
-    
+
     thread: Thread;
-    
+
     constructor(
         obj: any
     ) {
@@ -26,5 +26,5 @@ export class Message {
         this.text = obj && obj.text || null;
         this.thread = obj && obj.thread || null;
     }
-    
+
 }
