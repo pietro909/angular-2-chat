@@ -63,8 +63,8 @@ export class MessagesService {
     messagesForThreadUser(thread: Thread, user: User): Observable<Message> {
         return this.newMessages
             .filter((message: Message) => {
-                return message.thread.id === message.thread.id &&
-                        message.author.id !== message.author.id;
+                return message.thread.id === thread.id &&
+                        message.author.id !== user.id;
             });
     }
 
