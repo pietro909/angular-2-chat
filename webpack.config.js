@@ -20,7 +20,8 @@ var cwd = process.cwd();
 var DEBUG = !argv.release;
 var isDevServer = process.argv.join('').indexOf('webpack-dev-server') > -1;
 var version = require(path.resolve(cwd,'package.json')).version;
-var reloadHost = "0.0.0.0";
+// var reloadHost = "0.0.0.0";
+var reloadHost = "192.168.30.199";
 var npmRoot = __dirname + "/node_modules";
 var appDir = __dirname + "/app";
 
