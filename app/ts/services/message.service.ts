@@ -44,16 +44,17 @@ export class MessagesService {
             .subscribe(this.create);
 
         this.markThreadAsRead
-            .map((thread: Thread) =>
-                (messages: Message[]) =>
-                    (message: Message) => {
+            .map((thread: Thread) => {
+                console.log('wtf');
+                return (messages:Message[]) =>
+                    (message:Message) => {
                         // todo: mutability here!
                         if (message.thread.id === thread.id) {
                             message.isRead = true;
                         }
                         return message;
                     }
-            );
+            });
     }
 
     addMessage(message: Message): void {
